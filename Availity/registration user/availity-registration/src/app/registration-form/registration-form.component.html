@@ -1,0 +1,31 @@
+<div>
+    <h2>Healthcare Provider Registration</h2>
+    <form (ngSubmit)="onSubmit()" #registrationForm="ngForm">
+      <div>
+        <label>First Name:</label>
+        <input type="text" name="firstName" [(ngModel)]="formData.firstName" required />
+      </div>
+      <div>
+        <label>Last Name:</label>
+        <input type="text" name="lastName" [(ngModel)]="formData.lastName" required />
+      </div>
+      <div>
+        <label>NPI Number:</label>
+        <input type="text" name="npiNumber" [(ngModel)]="formData.npiNumber" required />
+      </div>
+      <div>
+        <label>Business Address:</label>
+        <input type="text" name="businessAddress" [(ngModel)]="formData.businessAddress" required />
+      </div>
+      <div>
+        <label>Telephone Number:</label>
+        <input type="tel" name="telephoneNumber" [(ngModel)]="formData.telephoneNumber" required />
+      </div>
+      <div>
+        <label>Email Address:</label>
+        <input type="email" name="emailAddress" [(ngModel)]="formData.emailAddress" required />
+      </div>
+      <button type="submit" [disabled]="!registrationForm.valid">Register</button>
+    </form>
+  </div>
+  
