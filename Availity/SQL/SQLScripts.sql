@@ -13,7 +13,7 @@ FROM Customer c
 LEFT JOIN `Order` o ON c.PKCustID = o.FK1CustomerID
 LEFT JOIN OrderLine ol ON o.PKOrderID = ol.FK1OrdID
 WHERE o.OrderDate >= DATE_SUB(CURRENT_DATE(), INTERVAL 6 MONTH)
-GROUP BY c.PKCustID;
+GROUP BY c.PKCustID, c.FirstName, c.LastName;
 
 
 --Amend the query from the previous question to only show those customers who have a total order value of more than $100 and less than $500 in the past six months.
@@ -23,7 +23,7 @@ FROM Customer c
 LEFT JOIN `Order` o ON c.PKCustID = o.FK1CustomerID
 LEFT JOIN OrderLine ol ON o.PKOrderID = ol.FK1OrdID
 WHERE o.OrderDate >= DATE_SUB(CURRENT_DATE(), INTERVAL 6 MONTH)
-GROUP BY c.PKCustID
+GROUP BY c.PKCustID, c.FirstName, c.LastName
 HAVING TotalOrderValue > 100 AND TotalOrderValue < 500;
 
 
@@ -34,5 +34,5 @@ FROM Customer c
 INNER JOIN `Order` o ON c.PKCustID = o.FK1CustomerID
 INNER JOIN OrderLine ol ON o.PKOrderID = ol.FK1OrdID
 WHERE o.OrderDate >= DATE_SUB(CURRENT_DATE(), INTERVAL 6 MONTH)
-GROUP BY c.PKCustID
+GROUP BY c.PKCustID, c.FirstName, c.LastName
 HAVING TotalOrderValue > 100 AND TotalOrderValue < 500;
